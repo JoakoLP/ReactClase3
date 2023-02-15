@@ -11,6 +11,10 @@ function List() {
 
     const add = ()=> setList([...list,{id:[list.length +1],title: `Lista en Estado ${list.length + 1}`}])
 
+    const remove = ()=> setList(list.slice(0,-1));
+
+    const logear = ()=> console.log(list.length);
+
     return (
         <div>
 
@@ -20,8 +24,9 @@ function List() {
                 
                 )}
 
-                <button onClick={add}>Agregar</button>
-
+                <button onClick={add} title="Agrega un objeto al final.">Agregar</button>
+                <button onClick={remove} title="Elimina el último objeto de la lista.">Eliminar</button>
+                <button onClick={logear} title="Muestra largo de la lista en consola.">Log</button>
 
 
         </div>

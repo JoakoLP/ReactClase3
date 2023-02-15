@@ -1,15 +1,23 @@
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function Reloj({hora}) { //¿cómo se está tomando el valor de esta prop, no debería ser hora.hora?
+// sin destructuring
+// function Reloj({props}) {
+//     return <h3>{props.hora}</h3>
+// };
+
+// con destructuring
+function Reloj({hora}) {
     return <h3>{hora}</h3>
-    ;
-}
+};
+
 
 const RelojEffect = () => {
-
     const [hora, setHora] = useState(new Date().toLocaleTimeString());
+    // hora inicia con la hora local
     const [visible, setVisible] = useState(false);
+    // visible inicia en 'false'
 
     useEffect(() => {
         let temporizador;
@@ -25,21 +33,23 @@ const RelojEffect = () => {
 
         return () => {
             clearInterval(temporizador);
+            console.log('useEffect del reloj') // para ver cuando se actua el useEffect
         };
     }, [visible]);
+    // estará atento a los cambios en [visible]
 
-
-    return (
+    return(
         <>
             <h2>Reloj con Hooks</h2>
-            {visible ? <Reloj hora={hora} /> : null}
-            <button onClick={() => setVisible(true)}>iniciar</button>
-            <button onClick={() => setVisible(false)}>detener</button>
+            {visible ? <Reloj hora={hora}/> : null}
+            {/* ternario, si visible es true, ejecuta y sino es 'null' */}
+            <button onClick={()=> setVisible(true)}>Iniciar</button>
+            <button onClick={()=> setVisible(false)}>Detener</button>
         </>
-    );
+    )
 }
-export default RelojEffect;
 
+export default RelojEffect;
 
 
 
