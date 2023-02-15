@@ -33,8 +33,8 @@ function Counter(){
                 <button onClick={div2} title="Dividir por 2">x/2</button>
                 <button onClick={div3} title="Dividir por 3">x/3</button>
                 <button onClick={div4} title="Dividir por 4">x/4</button>
-                <button onClick={nPrim}>Número Primo</button>
-                <button onClick={reset}>Reiniciar</button>
+                <button onClick={nPrim} title="Muestra en consola si es número primo.">Número Primo</button>
+                <button onClick={reset} title="Reinicia el contador">Reiniciar</button>
 
         </div>
     )
